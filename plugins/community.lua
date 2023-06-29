@@ -8,6 +8,7 @@ return {
   -- { import = "astrocommunity.completion.copilot-lua-cmp" },
   { import = "astrocommunity.pack.vue" },
   { import = "astrocommunity.pack.markdown" },
+  -- FIX:
   -- { import = "astrocommunity.pack.php" },
   { import = "astrocommunity.pack.prisma" },
   { import = "astrocommunity.pack.tailwindcss" },

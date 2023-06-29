@@ -17,6 +17,11 @@ return {
   },
   {
     "Exafunction/codeium.vim",
-    event = "User AstroFile"
+    event = "User AstroFile",
+  },
+  {
+    "simrat39/symbols-outline.nvim",
+    event = "User AstroFile",
+    opts = {}
   }
 }

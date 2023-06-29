@@ -90,5 +90,16 @@ return {
     lsp.volar.setup {
       filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json' },
     }
+
+    -- Format on save
+    lsp.eslint.setup({
+      --                  (client, bufnr)
+      on_attach = function(_, bufnr)
+        vim.api.nvim_create_autocmd("BufWritePre", {
+          buffer = bufnr,
+          command = "EslintFixAll"
+        })
+      end
+    })
   end,
 }

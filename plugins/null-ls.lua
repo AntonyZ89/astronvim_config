@@ -11,13 +11,19 @@ return {
       -- Set a formatter
       -- null_ls.builtins.formatting.stylua,
       -- null_ls.builtins.formatting.prettier,
-      null_ls.builtins.formatting.eslint_d.with({
-        only_local = true
-      }),
-      null_ls.builtins.formatting.prettierd.with({
-        only_local = true
-      })
+      --
+      -- force lint to use local binary
+      -- null_ls.builtins.formatting.eslint_d.with({
+      --   only_local = true
+      -- }),
+      -- null_ls.builtins.formatting.prettierd.with({
+      --   only_local = true
+      -- }),
+
+      null_ls.disable({ name = "prettierd" }),
+      null_ls.disable({ name = "eslint_d" }),
     }
+
     return config -- return final config table
   end,
 }
