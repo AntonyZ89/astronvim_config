@@ -28,6 +28,5 @@ return {
     -- ["<esc>"] = false,
   },
   v = {
-    ["p_dP"] = { '"_dP', desc = "Paste without yanking" }
   }
 }
