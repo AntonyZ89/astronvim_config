@@ -1,3 +1,20 @@
+local function removeValue(opts, value)
+  for i, v in ipairs(opts) do
+    if (v == value) then
+      opts[i] = nil
+    end
+  end
+end
+
+local function resetNullLs()
+  return {
+    "jay-babu/mason-null-ls.nvim",
+    opts = function(_, opts)
+      removeValue(opts.ensure_installed, "prettierd")
+    end,
+  }
+end
+
 return {
   -- Add the community repository of plugin specifications
   "AstroNvim/astrocommunity",
@@ -6,12 +23,16 @@ return {
 
   -- { import = "astrocommunity.colorscheme.catppuccin" },
   -- { import = "astrocommunity.completion.copilot-lua-cmp" },
+  { import = "astrocommunity.pack.json" },
   { import = "astrocommunity.pack.vue" },
   { import = "astrocommunity.pack.markdown" },
+  resetNullLs(),
   -- FIX:
   -- { import = "astrocommunity.pack.php" },
   { import = "astrocommunity.pack.prisma" },
   { import = "astrocommunity.pack.tailwindcss" },
+  resetNullLs(),
   { import = "astrocommunity.pack.yaml" },
   { import = "astrocommunity.pack.typescript" },
+  resetNullLs()
 }

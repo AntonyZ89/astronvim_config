@@ -52,6 +52,13 @@ return {
     servers = {
       -- "pyright"
     },
+    config = {
+      unocss = {
+        handlers = {
+          ["textDocument/documentHighlight"] = function() end
+        }
+      }
+    }
   },
 
   -- Configure require("lazy").setup() options
