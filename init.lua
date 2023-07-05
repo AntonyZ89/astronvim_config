@@ -109,7 +109,7 @@ return {
       end
     })
 
-    -- clipboard support
+    -- Clipboard support
     vim.g.clipboard = {
       name = 'WslClipboard',
       copy = {
@@ -122,5 +122,22 @@ return {
       },
       cache_enabled = 0,
     }
+
+    -- Disable formatting to avoid conflicts with prettier
+    require("typescript").setup({
+      server = {
+        on_attach = function(client)
+          vim.api.nvim_set_keymap(
+            'n',
+            'gd',
+            ':TypescriptGoToSourceDefinition<CR>',
+            { noremap = true, silent = true }
+          )
+
+          client.resolved_capabilities.document_formatting = false
+          client.resolved_capabilities.document_range_formatting = false
+        end
+      }
+    })
   end
 }

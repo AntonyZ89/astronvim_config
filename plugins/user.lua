@@ -18,10 +18,16 @@ return {
   {
     "Exafunction/codeium.vim",
     event = "User AstroFile",
-  },
-  {
-    "simrat39/symbols-outline.nvim",
-    event = "User AstroFile",
-    opts = {}
+    config = function()
+      vim.g.codeium_no_map_tab = 1
+      vim.keymap.set(
+        'i',
+        '<C-]>',
+        function()
+          return vim.fn['codeium#Accept']()
+        end,
+        { expr = true }
+      )
+    end
   }
 }

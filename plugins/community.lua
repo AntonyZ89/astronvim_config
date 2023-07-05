@@ -23,14 +23,13 @@ return {
 
   -- { import = "astrocommunity.colorscheme.catppuccin" },
   -- { import = "astrocommunity.completion.copilot-lua-cmp" },
-  { import = "astrocommunity.pack.json" },
   { import = "astrocommunity.pack.vue" },
   { import = "astrocommunity.pack.markdown" },
   resetNullLs(),
   -- FIX:
   -- { import = "astrocommunity.pack.php" },
   { import = "astrocommunity.pack.prisma" },
-  { import = "astrocommunity.pack.tailwindcss" },
+  { import = "astrocommunity.pack.tailwindcss",
   resetNullLs(),
   { import = "astrocommunity.pack.yaml" },
   { import = "astrocommunity.pack.typescript" },
