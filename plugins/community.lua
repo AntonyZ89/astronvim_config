@@ -29,9 +29,11 @@ return {
   -- FIX:
   -- { import = "astrocommunity.pack.php" },
   { import = "astrocommunity.pack.prisma" },
-  { import = "astrocommunity.pack.tailwindcss",
-  resetNullLs(),
-  { import = "astrocommunity.pack.yaml" },
-  { import = "astrocommunity.pack.typescript" },
-  resetNullLs()
+  {
+    import = "astrocommunity.pack.tailwindcss",
+    resetNullLs(),
+    { import = "astrocommunity.pack.yaml" },
+    { import = "astrocommunity.pack.typescript" },
+    resetNullLs()
+  }
 }
