@@ -12,8 +12,13 @@ return {
   {
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
-    opts = {},
-    event = "User AstroFile"
+    opts = {
+      keywords = {
+        IMPORTANT = { icon = "! ", color = "#f44336" },
+        QUESTION = { icon = "? ", color = "#9ACD32" }
+      }
+    },
+    event = "User AstroFile",
   },
   {
     "Exafunction/codeium.vim",
@@ -29,5 +34,10 @@ return {
         { expr = true }
       )
     end
-  }
+  },
+  {
+    "tpope/vim-surround",
+    dependencies = { "tpope/vim-repeat" },
+    event = "User AstroFile",
+  },
 }
