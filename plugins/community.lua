@@ -26,8 +26,6 @@ return {
   { import = "astrocommunity.pack.vue" },
   { import = "astrocommunity.pack.markdown" },
   resetNullLs(),
-  -- FIX:
-  -- { import = "astrocommunity.pack.php" },
   { import = "astrocommunity.pack.prisma" },
   {
     import = "astrocommunity.pack.tailwindcss",
