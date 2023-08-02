@@ -109,7 +109,7 @@ return {
       end
     })
 
-    if vim.fn.has("wsl") then
+    if vim.fn.has("wsl") == 1 then
       -- Clipboard support
       vim.g.clipboard = {
         name = 'WslClipboard',
