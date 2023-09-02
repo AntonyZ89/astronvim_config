@@ -15,7 +15,7 @@ return {
     opts = {
       keywords = {
         IMPORTANT = { icon = "! ", color = "#f44336" },
-        QUESTION = { icon = "? ", color = "#9ACD32" }
+        QUESTION = { icon = "? ", color = "#9ACD32" },
       }
     },
     event = "User AstroFile",
@@ -45,6 +45,10 @@ return {
     build = "cd app && npm install",
     init = function() vim.g.mkdp_filetypes = { "markdown" } end,
     ft = { "markdown" },
+  },
+  {
+    "mg979/vim-visual-multi",
+    event = "User AstroFile",
   },
   {
     "antonyz89/electron-vue.nvim",

@@ -1,3 +1,11 @@
+local attach_lsp = function (bufnr)
+  local bufopts = { noremap = true, silent = true, buffer = bufnr }
+
+  vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
+  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+  vim.keymap.set('n', '<leader>lr', vim.lsp.buf.rename, bufopts)
+end
+
 return {
   -- Configure AstroNvim updates
   updater = {
@@ -96,6 +104,9 @@ return {
     -- Enable take over mode for volar
     lsp.volar.setup {
       filetypes = { 'vue' },
+      on_attach = function(_, bufnr)
+        attach_lsp(bufnr)
+      end
     }
 
     -- Format on save
@@ -125,21 +136,24 @@ return {
       }
     end
 
-    -- Disable formatting to avoid conflicts with prettier
-    require("typescript").setup({
-      server = {
-        on_attach = function(client)
-          vim.api.nvim_set_keymap(
-            'n',
-            'gd',
-            ':TypescriptGoToSourceDefinition<CR>',
-            { noremap = true, silent = true }
-          )
+    lsp.tsserver.setup({
+      on_attach = function(client, bufnr)
+        attach_lsp(bufnr)
 
-          client.resolved_capabilities.document_formatting = false
-          client.resolved_capabilities.document_range_formatting = false
-        end
-      }
+        -- Disable formatting to avoid conflicts with prettier
+        client.resolved_capabilities.document_formatting = false
+        client.resolved_capabilities.document_range_formatting = false
+      end
     })
+
+    require("dap").configurations.typescript = {
+      {
+        type = "pwa-node",
+        request = "launch",
+        name = "Launch file",
+        program = "${file}",
+        cwd = "${workspaceFolder}",
+      }
+    }
   end
 }
